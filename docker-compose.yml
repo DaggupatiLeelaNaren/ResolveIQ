@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: resolveiq-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: resolveiq
+      POSTGRES_PASSWORD: resolveiq
+      POSTGRES_DB: resolveiq
+    ports:
+      - "5432:5432"
+    volumes:
+      - resolveiq_pgdata:/var/lib/postgresql/data
+
+volumes:
+  resolveiq_pgdata:
